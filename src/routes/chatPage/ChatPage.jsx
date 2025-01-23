@@ -1,9 +1,40 @@
-import React from 'react'
+import React, { useEffect, useRef } from "react";
+import "./chatPage.css";
 
-export default function ChatPage() {
+const ChatPage = () => {
+
+  const endRef=useRef(null)
+
+  useEffect(() =>{
+    endRef.current.scrollIntoView({behavior:"smooth"});
+  }, []);
+  
   return (
-    <div>
-      ini ChatPage
+    <div className="chatPage">
+      <div className="wrapper">
+        <div className="chat">
+          <div className="message">Test Message</div>
+          <div className="message">Test Message from ai</div>
+          <div className="message user">Test Message from user</div>
+          <div className="message">Test Message from ai </div>
+          <div className="message user">Test Message from user</div>
+          <div className="message">Test Message from ai</div>
+          <div className="message user">Test Message from user</div>
+          <div className="message">Test Message from ai</div>
+          <div className="message user">Test Message from user</div>
+          <div className="message">Test Message from ai</div>
+          <div className="message user">Test Message from user</div>
+          <div className="message">Test Message from ai</div>
+          <div className="message user">Test Message from user</div>
+          <div className="message">Test Message from ai</div>
+          <div className="message user">Test Message from user</div>
+
+          <div ref={endRef}/>
+
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
+
+export default ChatPage;
