@@ -1,0 +1,17 @@
+.chatList{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    height: 100%;
+    
+    hr{
+        border:node;
+        height: 2px;
+        background-color: #ddd;
+        opacity: 0.2;
+        border-radius: 5px;
+        margin: 20px 0px;
+    }
+
+
+}
