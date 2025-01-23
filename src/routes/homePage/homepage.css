@@ -4,6 +4,12 @@
     gap: 100px;
     height: 100%;
 
+@media screen and (max-width: 1024px) {
+    flex-direction: column;
+    gap: 0px;
+    
+}
+
     .left{
         flex: 1;
         display: flex;
@@ -12,8 +18,157 @@
         justify-content: center;
         gap: 16px;
         text-align: center;
+
+        h1{
+            font-size: 130px;
+            background: linear-gradient(to right, #acbdd8, #f50031);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+
+            @media screen and (max-width: 1280px) {
+                font-size: 90px;
+                
+            }
+        }
+        h2{
+            font-weight: 600;
+            min-width: 70%;
+            background:  #acbdd8;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+
+            @media screen and (max-width: 1024px) {
+                font-size: 20px;
+
+                
+            }
+        }
+        h3{
+            font-weight: 200;
+            min-width: 30%;
+
+            @media screen and (max-width: 1024px) {
+                flex-direction: column;
+                gap: 0px;
+                
+            }
+        }
+        a{
+            padding: 15px 25px;
+            background-color: #f50031;
+            color: #ffffff;
+            border-radius: 10px;
+            font-size: 14px;
+            margin-top: 20px;
+
+            &:hover{
+                background-color: #ffffff;
+                color: #f50031;
+            }
+        }
     }
     .right{
         flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        /* .orbital{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            opacity: 0.05;
+            animation: 100s linear infinite rotateOrbital;
+
+        } */
+
+        .imgContainer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0f0b1b;
+            border-radius: 50px;
+            width: 80%;
+            height: 50%;
+            position: relative;
+
+            .bgContainer{
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-radius: 50px;
+
+            }
+
+            .bot{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                animation: 3s ease-in-out infinite alternate botAnimate;
+            }
+
+            .chat{
+                position: absolute;
+                font-size: 7px;
+                bottom: -30px;
+                right: -50px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px;
+                background-color: #2c2937;
+                border-radius: 10px;
+
+                img{
+                    width: 52px;
+                    height: 52px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+
+            }
+        }   
+        
+        @media screen and (max-width: 1024px) {
+            flex-direction: column;
+            gap: 0px;
+            
+        }
+    }
+    .terms{
+       position: absolute;
+       bottom: 20px;
+       left: 50%;
+       transform: translateX(-50%) ;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 20px;
+
+       img{
+        width: 20px;
+        height: 20px;
+       }
+
+       .links{
+        display: flex;
+        gap: 10px;
+        color: #888;
+       }
+    }
+}
+@keyframes botAnimate{
+    0%{
+        transform: scale(1) rotate(0deg)
+    }
+    100%{
+        transform: scale(1.1) rotate(-5deg)
     }
 }
