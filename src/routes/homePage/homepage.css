@@ -115,7 +115,7 @@
 
             .chat{
                 position: absolute;
-                font-size: 7px;
+                font-size: 12px;
                 bottom: -30px;
                 right: -50px;
                 display: flex;
