@@ -15,7 +15,7 @@ const RootLayout = () => {
       <div className="rootLayout">
         <header>
           <Link to="/" className="logo">
-            <img src="/Chatbot/src/layouts/logo.jpg" alt="" />
+            <img src="https://icon-library.com/images/protection-shield-icon/protection-shield-icon-2.jpg" alt="" />
             <span>PROTECT</span>
           </Link>
           <div className="user">
