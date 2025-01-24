@@ -24,10 +24,7 @@ const ChatList = () => {
         <Link to="/">My chat title</Link>
         <Link to="/">My chat title</Link>
     </div>
-    <hr/>
-
-
-      
+    <hr/>      
     </div>
   )
 }

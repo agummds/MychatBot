@@ -1,14 +1,8 @@
-import React, { useEffect, useRef } from "react";
 import "./chatPage.css";
+import NewPrompt from "../../components/newPrompt/NewPrompt";
 
 const ChatPage = () => {
 
-  const endRef=useRef(null)
-
-  useEffect(() =>{
-    endRef.current.scrollIntoView({behavior:"smooth"});
-  }, []);
-  
   return (
     <div className="chatPage">
       <div className="wrapper">
@@ -29,7 +23,7 @@ const ChatPage = () => {
           <div className="message">Test Message from ai</div>
           <div className="message user">Test Message from user</div>
 
-          <div ref={endRef}/>
+          <NewPrompt/>
 
         </div>
       </div>
