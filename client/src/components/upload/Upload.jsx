@@ -1,6 +1,6 @@
 import './upload.css'
 import React from 'react'
-import { IKContext, IKImage } from 'imagekitio-react';
+import { IKContext, IKImage, IKUpload  } from 'imagekitio-react';
 
 const urlEndpoint =import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 ;
@@ -23,10 +23,37 @@ const authenticator =  async () => {
 };
 
 const Upload = () => {
-  return (
-    <div>
+
+    const onError = err => {
+        console.log("Error", err);
+      };
       
-    </div>
+      const onSuccess = res => {
+        console.log("Success", res);
+      };
+      
+      const onUploadProgress = progress => {
+        console.log("Progress", progress);
+      };
+      
+      const onUploadStart = evt => {
+        console.log("Start", evt);
+      };
+
+  return (
+    <IKContext
+    urlEndpoint={urlEndpoint}
+    publicKey={publicKey}
+    authenticator={authenticator}>
+    <IKUpload
+          fileName="test-upload.png"
+          onError={onError}
+          onSuccess={onSuccess}
+          useUniqueFileName={true}
+          onUploadProgress={onUploadProgress}
+          onUploadStart={onUploadStart}
+          />
+  </IKContext>
   )
 }
 
