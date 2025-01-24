@@ -1,20 +1,25 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import {
+  GoogleGenerativeAI,
+  HarmBlockThreshold,
+  HarmCategory,
+} from "@google/generative-ai";
 
-const safety_settings = [
+const safetySetting = [
   {
-    category: safety_types.HarmCategory.HARM_CATEGORY_DEROGATORY,
-    threshold: safety_types.HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
+    category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+    threshold: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
   },
   {
-    category: safety_types.HarmCategory.HARM_CATEGORY_VIOLENCE,
-    threshold: safety_types.HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
+    category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+    threshold: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
   },
 ];
 
-const genAI = new GoogleGenerativeAI(import.meta.enc.VITE_GEMINI_PUBLIC_KEY);
+const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_PUBLIC_KEY);
+
 const model = genAI.getGenerativeModel({
   model: "gemini-1.5-flash",
-  safety_settings,
+  safetySetting,
 });
 
 export default model;
