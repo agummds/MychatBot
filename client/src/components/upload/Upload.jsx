@@ -1,10 +1,9 @@
-import './upload.css'
 import React from 'react'
 import { IKContext, IKImage, IKUpload  } from 'imagekitio-react';
 
 const urlEndpoint =import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 ;
-const publicKey = import.meta.env.IMAGE_KIT_PUBLIC_KEY; 
+const publicKey = import.meta.env.VITE_IMAGE_KIT_PUBLIC_KEY; 
 const authenticator =  async () => {
     try {
         const response = await fetch('http://localhost:2000/api/upload');
@@ -44,7 +43,8 @@ const Upload = () => {
     <IKContext
     urlEndpoint={urlEndpoint}
     publicKey={publicKey}
-    authenticator={authenticator}>
+    authenticator={authenticator}
+    >
     <IKUpload
           fileName="test-upload.png"
           onError={onError}
