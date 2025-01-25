@@ -16,7 +16,7 @@ const RootLayout = () => {
         <header>
           <Link to="/" className="logo">
             <img src="https://icon-library.com/images/protection-shield-icon/protection-shield-icon-2.jpg" alt="" />
-            <span>PROTECT</span>
+            <span>RAKYAT</span>
           </Link>
           <div className="user">
             <SignedOut>

@@ -7,9 +7,9 @@ function HomePage() {
   return (
     <div className="homepage">
       <div className="left">
-        <h1>PROTECT</h1>
-        <h2>Procurement Tech for Efficient Cost Tracking</h2>
-        <h3>Melindungi proses pengadaan dari inefisiensi dan kecurangan</h3>
+        <h1>RAKYAT</h1>
+        <h2>Riset dan Analitik Kinerja serta Akuntabilitas Transparansi</h2>
+        <h3>Melindungi proses pengadaan dari inefisiensi dan kecurangan berbasi gen AI</h3>
         <Link to="/dashboard">Get Started</Link>
       </div>
       <div className="right">
@@ -25,13 +25,13 @@ function HomePage() {
             <TypeAnimation
               sequence={[
                 // Same substring at the start will only be typed out once, initially
-                "Bot : Kami diciptakan untuk memberantas kecurangan",
+                "Bot : Kami diciptakan untuk memberantas penyalahgunaan anggaran",
                 1000, // wait 1s before replacing "Mice" with "Hamsters"
-                "Bot : Kami diciptakan untuk memberantas korupsi",
+                "Bot : Kami diciptakan untuk meningkatkan tranparansi pengadaan",
                 1000,
-                "Bot : Kami diciptakan untuk memberantas ketidakjelasan",
+                "Bot : Kami diciptakan untuk memberantas ketidakjelasan prosedur pengadaan",
                 1000,
-                "Bot : Kami diciptakan untuk keadilan",
+                "Bot : Kami diciptakan untuk keadilan dalam distribusi anggaran",
                 1000,
               ]}
               wrapper="span"

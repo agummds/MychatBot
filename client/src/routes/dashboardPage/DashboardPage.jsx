@@ -7,7 +7,7 @@ function DashboardPage() {
       <div className="texts">
         <div className="logo">
           <img src="https://icon-library.com/images/protection-shield-icon/protection-shield-icon-2.jpg" alt="" />
-          <h1>PROTECT</h1>
+          <h1>RAKYAT </h1>
         </div>
         <div className="options">
           <div className="option">
