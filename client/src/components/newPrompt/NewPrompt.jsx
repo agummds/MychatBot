@@ -13,6 +13,7 @@ const NewPrompt = () => {
     isLoading: false,
     error: "",
     dbData: {},
+    aiData: {},
   });
 
   const endRef = useRef(null);
@@ -38,13 +39,24 @@ const NewPrompt = () => {
         - Jika ditemukan anomali, berikan laporan detail, seperti: "Harga barang ini 50% lebih tinggi dari rata-rata pasar."
         - Jika tidak ditemukan anomali, berikan jawaban: "Data pengadaan ini tidak menunjukkan adanya anomali."
         - Jika pertanyaan tidak relevan dengan pengadaan barang atau deteksi anomali, jawab: "Maaf, saya hanya dapat membantu dengan analisis pengadaan barang dan deteksi anomali."
+        - Jika ada inputan gambar, silahkan lihat da analisa gambar itu. Jika dia berupa inputan gambar yang berhubungan dengan uang, barang dan juga masih berkaitan dengan pengadaaan barang
+        maka jawab inputan itu dengan baik. Namun, jika inputan gambar tidak berhubungan dengan yang disebutkan diatas silahkan jawab bahwa gambar itu tidak ada kaitan dengan konteks dan akhiri percakapan
+
+        Cara Menjawab:
+        1. Mulai dengan kesimpulan singkat berdasarkan informasi awal.
+        2. Jika informasi kurang lengkap, minta data tambahan secara spesifik.
+        3. Hindari memberikan penjelasan panjang tanpa data pendukung.
+        4. Sampaikan dengan gaya bahasa yang profesional namun mudah dipahami.
         
         Berikut adalah data atau pertanyaan yang diberikan pengguna:
         "${text}"
         `;
 
     try {
-      const result = await model.generateContent(enhancedPrompt);
+      const result = await model.generateContent(
+        enhancedPrompt,
+        Object.entries(img.aiData).length ? [img.aiData, text] : [text]
+      );
       const response = await result.response;
       setAnswer(response.text());
     } catch (eeror) {
