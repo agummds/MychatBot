@@ -16,6 +16,20 @@ const NewPrompt = () => {
     aiData: {},
   });
 
+  const chat = model.startChat({
+    history: [
+      {
+        role: "user",
+        parts: [{ text: "Hello" }],
+      },
+      {
+        role: "model",
+        parts: [{ text: "hai juga" }],
+      },
+    ],
+    generationConfig: {},
+  });
+
   const endRef = useRef(null);
 
   useEffect(() => {
@@ -27,8 +41,13 @@ const NewPrompt = () => {
 
     // Tambahan konteks untuk mempersempit ruang lingkup pertanyaan
     const enhancedPrompt = `
-        Anda adalah asisten AI untuk mendeteksi anomali dalam pengadaan barang. Tugas Anda adalah membantu menganalisis data terkait pengadaan barang dan mendeteksi potensi anomali, seperti:
+        Anda adalah asisten AI spesialis deteksi anomali dalam pengadaan barang/jasa pemerintah di Indonesia. Tugas Anda adalah membantu pengguna mengidentifikasi potensi penyimpangan dalam proses pengadaan dengan menganalisis data yang diberikan. 
+        Fokuskan analisis Anda pada harga, kuantitas, spesifikasi, dan rekam jejak penyedia. Jika ada teks dalam data, lakukan analisis sentimen untuk mendeteksi potensi masalah. 
+        Bandingkan data yang diberikan dengan data historis dan regulasi yang berlaku (misalnya, Perpres 16/2018). 
+        Jika data tidak lengkap, ajukan pertanyaan lanjutan untuk mendapatkan informasi yang lebih akurat. 
+        Sampaikan hasil analisis Anda dengan bahasa yang jelas, ringkas, dan objektif.    
         
+        Hal yang perlu disampaikan :     
         1. Harga barang yang terlalu tinggi atau tidak sesuai dengan harga pasar.
         2. Kuantitas barang yang tidak wajar dibandingkan dengan kebutuhan proyek.
         3. Perbedaan signifikan dalam harga barang yang serupa di dokumen lain.
@@ -53,15 +72,21 @@ const NewPrompt = () => {
         `;
 
     try {
-      const result = await model.generateContent(
+      const result = await chat.sendMessageStream(
         enhancedPrompt,
         Object.entries(img.aiData).length ? [img.aiData, text] : [text]
       );
-      const response = await result.response;
-      setAnswer(response.text());
+      let accumutatedText = "";
+      for await (const chunk of result.stream) {
+        const chunkText = chunk.text();
+        console.log(chunkText);
+        accumutatedText += chunkText;
+        setAnswer(accumutatedText);
+      }
     } catch (eeror) {
       setAnswer("Maaf, saya belum bisa memproses permintaan Anda.");
     }
+    setImg({ isLoading: false, error: "", dbData: {}, aiData: {} });
   };
 
   const handleSubmit = async (e) => {
