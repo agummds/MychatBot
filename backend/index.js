@@ -125,7 +125,7 @@ app.put("/api/chats/:id", requireAuth(), async (req, res) => {
 
   const newItems = [
     ...(question 
-    ? { role: "user", parts: [{ textLquestion }], ...(img && { img }) }
+    ? [{ role: "user", parts: [{ text : question }], ...(img && { img }) }]
     : []),
     { role: "model", parts: [{ text: answer }] },
   ];
