@@ -4,7 +4,7 @@ import ImageKit from "imagekit";
 import mongoose from "mongoose";
 import Chat from "./models/chat.js";
 import UserChats from "./models/userChat.js";
-import { requireAuth  } from '@clerk/express';
+import { requireAuth } from "@clerk/express";
 
 const port = process.env.PORT || 2000;
 const app = express();
@@ -46,7 +46,7 @@ app.get("/api/upload", (req, res) => {
 
 app.post("/api/chats", requireAuth(), async (req, res) => {
   const userId = req.auth.userId;
-  const {text} = req.body;
+  const { text } = req.body;
 
   try {
     // Membuat Chat Baru
@@ -93,36 +93,64 @@ app.post("/api/chats", requireAuth(), async (req, res) => {
 app.get("/api/userchats", requireAuth(), async (req, res) => {
   const userId = req.auth.userId;
 
-  try{
-    const userChats = await UserChats.find({userId});
+  try {
+    const userChats = await UserChats.find({ userId });
     //console.log(userChats)
 
     res.status(200).send(userChats[0].chats);
-
-  }catch (err){
+  } catch (err) {
     console.log(err);
-    res.status(500).send ("Error")
+    res.status(500).send("Error");
   }
-} )
+});
 
 app.get("/api/chats/:id", requireAuth(), async (req, res) => {
   const userId = req.auth.userId;
 
-  try{
-    const chat = await Chat.find({_id: req.params.id, userId});
+  try {
+    const chat = await Chat.find({ _id: req.params.id, userId });
     //console.log(userChats)
 
     res.status(200).send(chat);
-
-  }catch (err){
+  } catch (err) {
     console.log(err);
-    res.status(500).send ("Error ngambil chat")
+    res.status(500).send("Kesalahan dalam mengambil chat");
   }
-} )
+});
+
+app.put("/api/chats/:id", requireAuth(), async (req, res) => {
+  const userId = req.auth.userId;
+
+  const { question, answer, img } = req.body;
+
+  const newItems = [
+    ...(question 
+    ? { role: "user", parts: [{ textLquestion }], ...(img && { img }) }
+    : []),
+    { role: "model", parts: [{ text: answer }] },
+  ];
+
+  try {
+    const updateChat = await Chat.updateOne(
+      { _id: req.params.id, userId },
+      {
+        $push: {
+          history: {
+            $each: newItems,
+          },
+        },
+      }
+    );
+    res.status(200).send(updateChat);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Kesalahan dalam menambahkan percakapan");
+  }
+});
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(401).send('Unauthenticated!');
+  res.status(401).send("Unauthenticated!");
 });
 
 app.listen(port, () => {
