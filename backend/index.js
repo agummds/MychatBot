@@ -94,7 +94,8 @@ app.get("/api/userchats", requireAuth(), async (req, res) => {
   const userId = req.auth.userId;
 
   try{
-    const userChats = UserChats.find({userId});
+    const userChats = await UserChats.find({userId});
+    //console.log(userChats)
 
     res.status(200).send(userChats[0].chats);
 
