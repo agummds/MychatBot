@@ -4,6 +4,7 @@ import ImageKit from "imagekit";
 import mongoose from "mongoose";
 import Chat from "./models/chat.js";
 import UserChats from "./models/userChat.js";
+import { requireAuth  } from '@clerk/express';
 
 const port = process.env.PORT || 2000;
 const app = express();
@@ -11,6 +12,7 @@ const app = express();
 app.use(
   cors({
     origin: process.env.CLIENT_URL,
+    credentials: true,
   })
 );
 
@@ -36,8 +38,15 @@ app.get("/api/upload", (req, res) => {
   res.send(result);
 });
 
-app.post("/api/chats", async (req, res) => {
-  const { userId, text } = req.body;
+// app.get("/api/test", requireAuth(), (req,res) => {
+//   const userId = req.auth.userId;
+//   console.log(userId);
+//   res.send("Berhasil!");
+// })
+
+app.post("/api/chats", requireAuth(), async (req, res) => {
+  const userId = req.auth.userId;
+  const {text} = req.body;
 
   try {
     // Membuat Chat Baru
@@ -79,6 +88,25 @@ app.post("/api/chats", async (req, res) => {
     console.log(err);
     res.status(500).send("Error creating chat!");
   }
+});
+
+app.get("/api/userchats", requireAuth(), async (req, res) => {
+  const userId = req.auth.userId;
+
+  try{
+    const userChats = UserChats.find({userId});
+
+    res.status(200).send(userChats[0].chats);
+
+  }catch (err){
+    console.log(err);
+    res.status(500).send ("Error")
+  }
+} )
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(401).send('Unauthenticated!');
 });
 
 app.listen(port, () => {

@@ -4,13 +4,24 @@ import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 
 function HomePage() {
+  // const test = async () => {
+  //   await fetch("http://localhost:2000/api/test", {
+  //     //credentials: true
+  //     credentials: "include",
+  //   });
+  // };
+
   return (
     <div className="homepage">
       <div className="left">
         <h1>RAKYAT</h1>
         <h2>Riset dan Analitik Kinerja serta Akuntabilitas Transparansi</h2>
-        <h3>Melindungi proses pengadaan dari inefisiensi dan kecurangan berbasi gen AI</h3>
+        <h3>
+          Melindungi proses pengadaan dari inefisiensi dan kecurangan berbasi
+          gen AI
+        </h3>
         <Link to="/dashboard">Get Started</Link>
+        {/* <button onClick={test}>TEST BACKEND</button> */}
       </div>
       <div className="right">
         <div className="imgContainer">
@@ -43,12 +54,15 @@ function HomePage() {
         </div>
       </div>
       <div className="terms">
-      <img src="https://icon-library.com/images/protection-shield-icon/protection-shield-icon-2.jpg" alt=""/>
-      <div className="links">
-      <Link to="/">Terms of Service</Link>
-      <span>|</span>
-      <Link to="/">Privacy Police</Link>
-      </div>
+        <img
+          src="https://icon-library.com/images/protection-shield-icon/protection-shield-icon-2.jpg"
+          alt=""
+        />
+        <div className="links">
+          <Link to="/">Terms of Service</Link>
+          <span>|</span>
+          <Link to="/">Privacy Police</Link>
+        </div>
       </div>
     </div>
   );
