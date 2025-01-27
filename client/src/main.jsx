@@ -9,6 +9,8 @@ import RootLayout from './layouts/rootLayout/RootLayout'
 import DashboardLayout from './layouts/dashboardLayout/DashboardLayout'
 import SignInPage from './routes/signInPage/SignInPage'
 import SignUpPage from './routes/signUpPage/SignUpPage'
+import Explore from './routes/ekplore/Explore'
+import Contact from './routes/contact/Contact'
 
 const router = createBrowserRouter([
   {
@@ -37,7 +39,16 @@ const router = createBrowserRouter([
             path:"/dashboard/chats/:id",
             element:<ChatPage/>,
           },
+          {
+            path:"/dashboard/about",
+            element:<Explore/>,
+          },
+          {
+            path:"/dashboard/contact",
+            element:<Contact/>,
+          },
         ]
+
 
       }
     ],

@@ -52,21 +52,21 @@ function DashboardPage() {
               src="https://static.vecteezy.com/system/resources/previews/037/296/960/original/ai-generated-chatting-conversation-logo-free-png.png"
               alt=""
             />
-            <span>Create a New Chat</span>
+            <span>Percakapan</span>
           </div>
           <div className="option">
             <img
               src="https://static.vecteezy.com/system/resources/previews/037/296/960/original/ai-generated-chatting-conversation-logo-free-png.png"
               alt=""
             />
-            <span>Create a New Chat</span>
+            <span>Pertanyaan</span>
           </div>
           <div className="option">
             <img
               src="https://static.vecteezy.com/system/resources/previews/037/296/960/original/ai-generated-chatting-conversation-logo-free-png.png"
               alt=""
             />
-            <span>Create a New Chat</span>
+            <span>Permasalahan</span>
           </div>
         </div>
       </div>
