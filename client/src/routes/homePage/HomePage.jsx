@@ -17,7 +17,7 @@ function HomePage() {
         <h1>RAKYAT</h1>
         <h2>Riset dan Analitik Kinerja serta Akuntabilitas Transparansi</h2>
         <h3>
-          Melindungi proses pengadaan dari inefisiensi dan kecurangan berbasi
+          Melindungi proses pengadaan dari inefisiensi dan kecurangan berbasis
           gen AI
         </h3>
         <Link to="/dashboard">Get Started</Link>
