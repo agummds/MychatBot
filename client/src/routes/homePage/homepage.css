@@ -25,7 +25,7 @@
 
         h1{
             font-size: 130px;
-            background: linear-gradient(to right, #acbdd8, #f50031);
+            background: linear-gradient(to right, white, #f1b24a);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -42,7 +42,7 @@
             font-weight: 600;
             font-size: 20px;
             min-width: 70%;
-            background:  #acbdd8;
+            background:  #f1b24a;
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -70,15 +70,15 @@
         }
         a{
             padding: 15px 25px;
-            background-color: #f50031;
-            color: #ffffff;
+            background-color: #f1b24a;
+            color: #ffff;
             border-radius: 10px;
             font-size: 14px;
             margin-top: 20px;
 
             &:hover{
-                background-color: #ffffff;
-                color: #f50031;
+                background-color: #ffff;
+                color: #164a41;
             }
             @media screen and (max-width: 360px) {
                 padding: 10px 20px;
@@ -97,7 +97,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #0f0b1b;
+            background-color: #4d774e;
             border-radius: 50px;
             width: 80%;
             height: 50%;
@@ -130,13 +130,14 @@
             .chat{
                 position: absolute;
                 font-size: 12px;
+                font-weight: 400;
                 bottom: -30px;
                 right: -50px;
                 display: flex;
                 align-items: center;
                 gap: 10px;
                 padding: 10px;
-                background-color: #2c2937;
+                background-color: #f1b24a;
                 border-radius: 10px;
 
                 @media screen and (max-width: 360px) {
