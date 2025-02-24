@@ -8,6 +8,7 @@ import { requireAuth } from "@clerk/express";
 
 const port = process.env.PORT || 2000;
 const app = express();
+const path = require("path");
 
 app.use(
   cors({
@@ -124,9 +125,9 @@ app.put("/api/chats/:id", requireAuth(), async (req, res) => {
   const { question, answer, img } = req.body;
 
   const newItems = [
-    ...(question 
-    ? [{ role: "user", parts: [{ text : question }], ...(img && { img }) }]
-    : []),
+    ...(question
+      ? [{ role: "user", parts: [{ text: question }], ...(img && { img }) }]
+      : []),
     { role: "model", parts: [{ text: answer }] },
   ];
 
@@ -151,6 +152,11 @@ app.put("/api/chats/:id", requireAuth(), async (req, res) => {
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(401).send("Unauthenticated!");
+});
+
+app.use(express.static("/client/build"));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(port, () => {
