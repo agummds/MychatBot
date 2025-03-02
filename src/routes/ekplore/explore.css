@@ -1,0 +1,39 @@
+.Explore {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.Explore h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.Explore h4 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+.Explore p {
+    font-size: 1rem;
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+/* Styling untuk span yang digunakan */
+.bold {
+    font-weight: bold;
+    color: #ffe195; /* Warna biru agar menonjol */
+}
+
+.Explore p span {
+    font-weight: bold;
+    color: #f6d6a7; /* Warna merah agar menarik perhatian */
+    text-transform: uppercase; /* Huruf kapital semua */
+}
