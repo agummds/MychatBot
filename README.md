@@ -6,7 +6,7 @@ RAKYAT adalah sebuah platform berbasis **MERN Stack** yang bertujuan untuk **mel
 ## ✨ Fitur Utama
 - **Analisis Kinerja & Transparansi** menggunakan AI
 - **Deteksi Inefisiensi dan Kecurangan dalam Pengadaan**
-- **Manajemen Data Pengadaan** dengan **MongoDB Atlas**
+- **History Chat** dengan **MongoDB Atlas**
 - **Autentikasi Aman** menggunakan Clerk
 - **Dukungan Pengelolaan Media** dengan ImageKit
 
