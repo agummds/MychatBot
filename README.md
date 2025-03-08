@@ -12,7 +12,7 @@ RAKYAT adalah sebuah platform berbasis **MERN Stack** yang bertujuan untuk **mel
 
 ## 🛠️ Teknologi yang Digunakan
 Proyek ini dibangun menggunakan **MERN Stack**:
-- **MongoDB Atlas** – Database NoSQL untuk menyimpan data pengadaan
+- **MongoDB Atlas** – Database NoSQL untuk menyimpan history chat
 - **Express.js** – Backend framework untuk API
 - **React.js** – Frontend untuk antarmuka pengguna
 - **Node.js** – Server-side runtime
