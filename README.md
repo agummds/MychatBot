@@ -65,7 +65,7 @@ npm install
 ### 3️⃣ Menjalankan Server Backend
 ```sh
 cd backend
-npm run
+npm start
 ```
 
 ### 4️⃣ Menjalankan Client Frontend
