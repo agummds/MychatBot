@@ -91,6 +91,7 @@ const NewPrompt = ({ data }) => {
      Berikut adalah pertanyaan pengguna:
      "${text}"
         `;
+  
 
     try {
       const result = await chat.sendMessageStream(

@@ -72,7 +72,7 @@ function DashboardPage() {
       </div>
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
-          <input type="text" name="text" placeholder="Tanyakan keraguan anda!" />
+          <input type="text" name="text" placeholder="Tanyakan Permasalahan Anda!" />
           <button>
             <img src="https://www.pngmart.com/files/3/Up-Arrow-PNG-Transparent-Image.png" />
           </button>
