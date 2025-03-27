@@ -80,6 +80,24 @@ npm run dev
 ## 📜 Lisensi
 Proyek ini dilisensikan di bawah [MIT License](https://github.com/agummds/MychatBot/blob/master/LICENSE).
 
+### Screenshot
+Berikut adalah beberapa screenshot dari aplikasi yang menggambarkan fitur utama:
+
+1. **Halaman Utama**  
+   ![Screenshot 1](https://drive.google.com/uc?export=view&id=1fwqS4mjNaBcsrtLNrucwfUyHz6T5LdCI)
+
+2. **Halaman Login**  
+   ![Screenshot 2](https://drive.google.com/uc?export=view&id=1OtXIQDxyQZfC5WgiwlnbSyuDHpGY-Yvt)
+
+3. **Halaman Chatbot**  
+   ![Screenshot 3](https://drive.google.com/uc?export=view&id=1wT55_m3YE4voChC2S0PcUNUOeZ4Si8Fs)
+
+4. **Halaman About**
+   ![Screenshot 4](https://drive.google.com/uc?export=view&id=1ooEYUOeub27-bnSRNeo8QupzMhrb44le)
+
+5. **Halaman Contact**
+   ![Screenshot 5](https://drive.google.com/uc?export=view&id=1kIav1qCZ3n15GHVB6TbRYlbTkxj6UQfQ)
+
 ### Berikut beberapa contoh pertanyaan yang bisa digunakan sebagai pedoman bagi pengguna saat berinteraksi dengan AI dalam sistem RAKYAT:
 ## 📌 Regulasi dan Prosedur Pengadaan
 - Apa yang dimaksud dengan Perpres 16/2018 tentang pengadaan barang/jasa pemerintah?
